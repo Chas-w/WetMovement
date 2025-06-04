@@ -1,7 +1,6 @@
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody))]
 
-public class PlayerController : MonoBehaviour
+public class DryMovement : MonoBehaviour
 {
     [Header("PlayerProperties")]
     [SerializeField] float playerMaxSpeed = 10.0f;
@@ -49,10 +48,10 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = getInputs.Player.Move.ReadValue<Vector2>();
         move = new Vector3(movement.x, 0, movement.y).normalized;
 
-
+        
         //controller.Move(move * Time.deltaTime * playerMaxSpeed);
 
-
+        
 
         if (movement.magnitude >= 0.1f)
         {
@@ -70,4 +69,5 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody.AddForce(move * playerAcceleration, ForceMode.Force);
     }
+
 }
