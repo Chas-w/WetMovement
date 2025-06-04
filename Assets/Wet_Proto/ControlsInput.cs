@@ -28,7 +28,7 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
             ""id"": ""608d81eb-5218-4ade-add2-fd917ade7d62"",
             ""actions"": [
                 {
-                    ""name"": ""Kickoff"",
+                    ""name"": ""Ascend"",
                     ""type"": ""Button"",
                     ""id"": ""5f839074-e21d-4f1d-a6ee-d285c76f00a9"",
                     ""expectedControlType"": """",
@@ -55,9 +55,9 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""VertToggle"",
+                    ""name"": ""Dive"",
                     ""type"": ""Button"",
-                    ""id"": ""f2320616-a031-4b60-a819-22fd5b0ed03f"",
+                    ""id"": ""88438b93-1ea0-41de-a8f6-f28ce7139c56"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -72,18 +72,18 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";KeyboardMouse"",
-                    ""action"": ""Kickoff"",
+                    ""action"": ""Ascend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""599380ce-d5e1-43b8-bce4-62287162bb83"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Kickoff"",
+                    ""action"": ""Ascend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -177,12 +177,23 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""52778d41-edf5-4bba-9bff-7d461084cf40"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""id"": ""f7fc17ce-14ec-44f0-953c-79db5e14bcfd"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";KeyboardMouse"",
-                    ""action"": ""VertToggle"",
+                    ""action"": ""Dive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be459f86-a916-4ff0-9a1c-22c0baf41b04"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Dive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -226,10 +237,10 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Kickoff = m_Player.FindAction("Kickoff", throwIfNotFound: true);
+        m_Player_Ascend = m_Player.FindAction("Ascend", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
-        m_Player_VertToggle = m_Player.FindAction("VertToggle", throwIfNotFound: true);
+        m_Player_Dive = m_Player.FindAction("Dive", throwIfNotFound: true);
     }
 
     ~@ControlsInput()
@@ -296,18 +307,18 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Kickoff;
+    private readonly InputAction m_Player_Ascend;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
-    private readonly InputAction m_Player_VertToggle;
+    private readonly InputAction m_Player_Dive;
     public struct PlayerActions
     {
         private @ControlsInput m_Wrapper;
         public PlayerActions(@ControlsInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Kickoff => m_Wrapper.m_Player_Kickoff;
+        public InputAction @Ascend => m_Wrapper.m_Player_Ascend;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
-        public InputAction @VertToggle => m_Wrapper.m_Player_VertToggle;
+        public InputAction @Dive => m_Wrapper.m_Player_Dive;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -317,34 +328,34 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @Kickoff.started += instance.OnKickoff;
-            @Kickoff.performed += instance.OnKickoff;
-            @Kickoff.canceled += instance.OnKickoff;
+            @Ascend.started += instance.OnAscend;
+            @Ascend.performed += instance.OnAscend;
+            @Ascend.canceled += instance.OnAscend;
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @VertToggle.started += instance.OnVertToggle;
-            @VertToggle.performed += instance.OnVertToggle;
-            @VertToggle.canceled += instance.OnVertToggle;
+            @Dive.started += instance.OnDive;
+            @Dive.performed += instance.OnDive;
+            @Dive.canceled += instance.OnDive;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @Kickoff.started -= instance.OnKickoff;
-            @Kickoff.performed -= instance.OnKickoff;
-            @Kickoff.canceled -= instance.OnKickoff;
+            @Ascend.started -= instance.OnAscend;
+            @Ascend.performed -= instance.OnAscend;
+            @Ascend.canceled -= instance.OnAscend;
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @VertToggle.started -= instance.OnVertToggle;
-            @VertToggle.performed -= instance.OnVertToggle;
-            @VertToggle.canceled -= instance.OnVertToggle;
+            @Dive.started -= instance.OnDive;
+            @Dive.performed -= instance.OnDive;
+            @Dive.canceled -= instance.OnDive;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -382,9 +393,9 @@ public partial class @ControlsInput: IInputActionCollection2, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnKickoff(InputAction.CallbackContext context);
+        void OnAscend(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnVertToggle(InputAction.CallbackContext context);
+        void OnDive(InputAction.CallbackContext context);
     }
 }

@@ -6,7 +6,7 @@
             "id": "608d81eb-5218-4ade-add2-fd917ade7d62",
             "actions": [
                 {
-                    "name": "Kickoff",
+                    "name": "Ascend",
                     "type": "Button",
                     "id": "5f839074-e21d-4f1d-a6ee-d285c76f00a9",
                     "expectedControlType": "",
@@ -33,9 +33,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "VertToggle",
+                    "name": "Dive",
                     "type": "Button",
-                    "id": "f2320616-a031-4b60-a819-22fd5b0ed03f",
+                    "id": "88438b93-1ea0-41de-a8f6-f28ce7139c56",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -50,18 +50,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
-                    "action": "Kickoff",
+                    "action": "Ascend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "599380ce-d5e1-43b8-bce4-62287162bb83",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Kickoff",
+                    "action": "Ascend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -155,12 +155,23 @@
                 },
                 {
                     "name": "",
-                    "id": "52778d41-edf5-4bba-9bff-7d461084cf40",
-                    "path": "<Keyboard>/leftShift",
+                    "id": "f7fc17ce-14ec-44f0-953c-79db5e14bcfd",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
-                    "action": "VertToggle",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "be459f86-a916-4ff0-9a1c-22c0baf41b04",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Dive",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
