@@ -79,8 +79,6 @@ public class WetController : MonoBehaviour
     {
         rigidBody.AddForce(transform.forward * maxThrust * stroke);
 
-
-
         rigidBody.AddTorque(transform.up * yaw * responseModifier);
         rigidBody.AddTorque(transform.right * pitch * responseModifier);
         rigidBody.AddTorque(transform.forward * roll * responseModifier);
