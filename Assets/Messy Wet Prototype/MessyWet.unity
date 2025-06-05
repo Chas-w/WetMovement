@@ -442,6 +442,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1580964704}
+  - {fileID: 8944336656863366127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &922501654
@@ -518,7 +519,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -536,16 +537,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivityY: 1
   sensitivityX: 1
-  sensitivityZ: 2
+  sensitivityZ: 0.1
   rotationMinY: -85
   rotationMaxY: 80
-  rotationMinX: -95
-  rotationMaxX: 95
   rotationMinZ: -45
   rotationMaxZ: 45
-  maxSpeed: 10
-  acceleration: 1
-  deceleration: 2
+  maxSpeed: 350
+  acceleration: 75
+  deceleration: 100
+  drag: 80
 --- !u!114 &1445839090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7145,11 +7145,11 @@ Transform:
   m_GameObject: {fileID: 8944336656863366122}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000007124284, y: 0.000000008403123, z: 5.986623e-17, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 922501653}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9065339783840152504
 GameObject:
@@ -7247,6 +7247,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1721045631}
   - {fileID: 8345070699227046357}
-  - {fileID: 8944336656863366127}
   - {fileID: 2013410475}
   - {fileID: 922501653}
