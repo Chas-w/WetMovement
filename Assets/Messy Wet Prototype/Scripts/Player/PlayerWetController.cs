@@ -37,7 +37,10 @@ public class PlayerWetController : MonoBehaviour
     Rigidbody rigidBody;
     Vector2 moveAxis;
     float moveY;
-    float speed; 
+    float speed;
+
+    //AnimationVariables
+    [SerializeField] Animator anim;
 
     private void Awake()
     {
@@ -66,6 +69,8 @@ public class PlayerWetController : MonoBehaviour
     {
         InputAssignment(); 
         LookControl();
+
+        anim.SetFloat("Speed", speed);
     }
     private void FixedUpdate()
     {

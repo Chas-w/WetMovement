@@ -546,6 +546,7 @@ MonoBehaviour:
   acceleration: 75
   deceleration: 100
   drag: 80
+  anim: {fileID: 1580964705}
 --- !u!114 &1445839090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -749,6 +750,11 @@ PrefabInstance:
 --- !u!4 &1580964704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 75b529c111977fe44a1e830e9192e284, type: 3}
+  m_PrefabInstance: {fileID: 1580964703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1580964705 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 75b529c111977fe44a1e830e9192e284, type: 3}
   m_PrefabInstance: {fileID: 1580964703}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1721045630
