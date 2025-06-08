@@ -892,6 +892,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14b0a87a43fddc48948857bf4bc5ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivityY: 1
+  sensitivityX: 1
+  rotationMinY: -85
+  rotationMaxY: 85
+  maxSpeed: 350
+  maxStrafeSpeed: 0
+  acceleration: 75
+  deceleration: 100
+  drag: 80
+  anim: {fileID: 1580964705}
 --- !u!1 &1417710947
 GameObject:
   m_ObjectHideFlags: 3
@@ -1185,6 +1195,11 @@ PrefabInstance:
 --- !u!4 &1580964704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 75b529c111977fe44a1e830e9192e284, type: 3}
+  m_PrefabInstance: {fileID: 1580964703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1580964705 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 75b529c111977fe44a1e830e9192e284, type: 3}
   m_PrefabInstance: {fileID: 1580964703}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1580964706 stripped
@@ -5396,23 +5411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PixelationFactor: 1
-  _ColorEmulationMode: 3
-  _FullscreenColorDepth: {x: 256, y: 256, z: 256}
-  _FullscreenDitherDepth: {x: 32, y: 32, z: 32}
-  _DitheringMatrixSize: 2
-  _DitheringScale: 1
-  _InterlacingSize: 1
-  _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
-  _PostProcessMaterial: {fileID: 0}
-  _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
-  _PostProcessMaterialAccurate: {fileID: 0}
-  _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
-  _PixelationMaterial: {fileID: 0}
-  _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
-  _InterlacingMaterial: {fileID: 0}
-  _PreviousFrame: {fileID: 0}
-  _IsFirstFrame: 1
 --- !u!1 &9065339783840152504
 GameObject:
   m_ObjectHideFlags: 0
