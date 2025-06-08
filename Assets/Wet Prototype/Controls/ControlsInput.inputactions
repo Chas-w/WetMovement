@@ -6,15 +6,6 @@
             "id": "608d81eb-5218-4ade-add2-fd917ade7d62",
             "actions": [
                 {
-                    "name": "Ascend",
-                    "type": "Button",
-                    "id": "5f839074-e21d-4f1d-a6ee-d285c76f00a9",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Move",
                     "type": "Value",
                     "id": "e9e42c5e-e5df-45be-98ad-0e9c96ca1017",
@@ -33,9 +24,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Dive",
+                    "name": "Breathing",
                     "type": "Button",
-                    "id": "88438b93-1ea0-41de-a8f6-f28ce7139c56",
+                    "id": "a3a42f32-3bf8-4661-be04-0cbf4ee7eaeb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -43,28 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "35f752c3-7f5c-4a40-b024-fc28754626a0",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";KeyboardMouse",
-                    "action": "Ascend",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "599380ce-d5e1-43b8-bce4-62287162bb83",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Ascend",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "8f93ac1f-c310-49a0-8606-72d616f6bc1d",
@@ -155,23 +124,23 @@
                 },
                 {
                     "name": "",
-                    "id": "f7fc17ce-14ec-44f0-953c-79db5e14bcfd",
-                    "path": "<Keyboard>/shift",
+                    "id": "d51547c6-170e-4b75-9f8c-d7c057cb8c2e",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";KeyboardMouse",
-                    "action": "Dive",
+                    "groups": ";Gamepad",
+                    "action": "Breathing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "be459f86-a916-4ff0-9a1c-22c0baf41b04",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "52d9de8c-1bc5-495a-812e-907326b044cb",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Dive",
+                    "groups": ";KeyboardMouse",
+                    "action": "Breathing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

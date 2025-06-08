@@ -779,6 +779,9 @@ GameObject:
   - component: {fileID: 922501659}
   - component: {fileID: 922501662}
   - component: {fileID: 922501663}
+  - component: {fileID: 922501666}
+  - component: {fileID: 922501665}
+  - component: {fileID: 922501664}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -892,12 +895,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14b0a87a43fddc48948857bf4bc5ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swimMovement: {fileID: 922501666}
+  oxygenControl: {fileID: 922501665}
+--- !u!114 &922501664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922501652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0e34c0c1d187e4aa5fd474e5700f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 50
+  currentHealth: 0
+--- !u!114 &922501665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922501652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d685f160d4a192147baefb901b3d296f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OxygenMax: 500
+  currentOxygen: 0
+  oxygenLost: 5
+  oxygenInjureAmount: 10
+  addedBreatheTime: 2
+  breatheTimerMax: 12
+  breathInjureAmount: 2
+  breatheTimer: 0
+  health: {fileID: 922501664}
+--- !u!114 &922501666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922501652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14642a7b32eb33645b1e08013d5161a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   sensitivityY: 1
   sensitivityX: 1
   rotationMinY: -85
   rotationMaxY: 85
   maxSpeed: 350
-  maxStrafeSpeed: 0
   acceleration: 75
   deceleration: 100
   drag: 80
@@ -5342,7 +5393,6 @@ GameObject:
   - component: {fileID: 8944336656863366121}
   - component: {fileID: 1445839090}
   - component: {fileID: 8944336656863366128}
-  - component: {fileID: 8944336656863366129}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -5399,18 +5449,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8944336656863366129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944336656863366122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9065339783840152504
 GameObject:
   m_ObjectHideFlags: 0
