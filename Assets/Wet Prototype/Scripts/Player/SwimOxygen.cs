@@ -4,7 +4,7 @@ public class SwimOxygen : MonoBehaviour
 {
     [Header("oxygen data")]
     public float OxygenMax;
-    [SerializeField] float currentOxygen; //unserialize after UI is functional
+    public float currentOxygen; //unserialize after UI is functional
     public float oxygenLost = 2;
     [SerializeField] float oxygenInjureAmount = 10; //amount health goes down if no O2
 
