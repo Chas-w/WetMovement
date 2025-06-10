@@ -1,65 +1,112 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using Cinemachine;
+using TMPro;
 
 public class HarpoonShooter : MonoBehaviour
 {
     [Header("External GameObjects")]
     [SerializeField] GameObject player;
     [SerializeField] GameObject harpoonPrefab;
+    [SerializeField] Camera cam;
+    [SerializeField] Transform attackPoint;
+    [SerializeField] GameObject inventoryDisplay;
 
     [Header("Changeable Variables")]
     [SerializeField] LayerMask layerMask;
-    [SerializeField] int startInventory;
+    [SerializeField] int inventory = 10;
     [SerializeField] float shootForce;
 
     List<GameObject> harpoons = new List<GameObject>();
+    GameObject _selection;
+    public ControlsInput getInputs;
+
+    #region Input Data
+    private void Awake()
+    {
+        getInputs = new ControlsInput();
+        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+    }
+    private void OnEnable()
+    {
+        getInputs.Enable();
+    }
+    private void OnDisable()
+    {
+        getInputs.Disable();
+    }
+    #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        /*
-        for (int i = 0; i < 10; i++)
-        {
-            GameObject currentHarpoon = Instantiate(harpoonPrefab, player.transform.position, Quaternion.identity);
-            harpoons.Add(currentHarpoon);
-            currentHarpoon.GetComponent<HarpoonBehavior>().SetUpSelf(player);
-        }
-        */
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) Shoot();
+        if (inventory > 0 && getInputs.Player.Shoot.WasPressedThisFrame())
+        {
+            Shoot();
+        }
+        if (_selection != null && getInputs.Player.Select.WasPressedThisFrame())
+        {
+            PickUpHarpoon(_selection);
+        } 
+        
+        CheckForHarpoon();
+        if(inventoryDisplay != null) inventoryDisplay.GetComponent<TextMeshProUGUI>().text = inventory.ToString();
+    }
+
+    void PickUpHarpoon(GameObject currentHarpoon)
+    {
+        Debug.Log("PickedUp");
+        Destroy(currentHarpoon);
+        inventory++;
+    }
+
+    void CheckForHarpoon()
+    {
+        if (_selection != null)
+        {
+            _selection = null;
+        }
+
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction * 5);
+        if (Physics.Raycast(ray, out hit, 5, layerMask))
+        {
+            var selection = hit.transform;
+            _selection = selection.gameObject;
+        }
     }
 
     void Shoot()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Vector3 shootDirection = ray.direction.normalized;
-
-        GameObject currentHarpoon = Instantiate(harpoonPrefab, player.transform.position, Quaternion.identity);
-        currentHarpoon.GetComponent<HarpoonBehavior>().SetUpSelf(player);
-        currentHarpoon.GetComponent<HarpoonBehavior>().Shoot(transform.forward, shootForce);
-
-        //if(harpoons.Count > 0)
-        //{
-            //harpoons[0].GetComponent<HarpoonBehavior>().Shoot(transform.forward, shootForce);
-            //harpoons[0].GetComponent<HarpoonBehavior>().Shoot(transform.forward, shootForce);
-            //harpoons.Remove(harpoons[0]);
-        //}
-
-
-        /*
+        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 20, layerMask))
+
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit))
         {
-            var selection = hit.transform;
-
-            Debug.DrawRay(ray.origin, ray.direction, Color.green, 10);
-
+            targetPoint = hit.point;
         }
-        */
+        else
+        {
+            targetPoint = ray.GetPoint(75);
+        }
+
+        Vector3 shootDirection = targetPoint - attackPoint.position;
+        
+        GameObject currentHarpoon = Instantiate(harpoonPrefab, attackPoint.position, Quaternion.identity);
+        currentHarpoon.transform.up = shootDirection.normalized;
+
+        currentHarpoon.GetComponent<Rigidbody>().AddForce(shootDirection.normalized * shootForce, ForceMode.Impulse);
+
+        inventory--;
     }
 }

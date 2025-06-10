@@ -25,28 +25,15 @@ public class HarpoonBehavior : MonoBehaviour
         }
     }
 
-    public void SetUpSelf(GameObject player)
+    private void OnTriggerEnter(Collider other)
     {
-        this.player = player;
-        isHeld = true;
-        //Physics.IgnoreCollision(col, player.GetComponent<Collider>(), true);
-
-        if (col.enabled) col.enabled = false;
-        if (mr.enabled) mr.enabled = false;
+        if(other.gameObject.CompareTag("Wall"))
+        {
+            rb.isKinematic = true;
+            rb.AddForce(rb.GetAccumulatedForce() * -1);
+            //Debug.Log("Hit");
+        }
     }
 
-    public void PickUpSelf(GameObject player)
-    {
-        if (col.enabled) col.enabled = false;
-        if (mr.enabled) mr.enabled = false;
-    }
-
-    public void Shoot(Vector3 shootDirection, float shootForce)
-    {
-        rb.AddForce(shootForce * shootDirection, ForceMode.Impulse);
-        isHeld = false;
-        //col.enabled = true;
-        //mr.enabled = true;
-    }
 
 }
