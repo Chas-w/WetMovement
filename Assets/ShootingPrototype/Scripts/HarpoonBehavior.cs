@@ -6,14 +6,14 @@ public class HarpoonBehavior : MonoBehaviour
     public bool isHeld;
 
     //Components
-    Collider col;
+    CapsuleCollider col;
     Rigidbody rb;
     MeshRenderer mr;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class HarpoonBehavior : MonoBehaviour
     {
         this.player = player;
         isHeld = true;
-        Physics.IgnoreCollision(col, player.GetComponent<Collider>(), true);
+        //Physics.IgnoreCollision(col, player.GetComponent<Collider>(), true);
 
         if (col.enabled) col.enabled = false;
         if (mr.enabled) mr.enabled = false;
@@ -43,9 +43,10 @@ public class HarpoonBehavior : MonoBehaviour
 
     public void Shoot(Vector3 shootDirection, float shootForce)
     {
-        rb.AddForce(shootForce * shootDirection * Time.deltaTime, ForceMode.Impulse);
-        col.enabled = true;
-        mr.enabled = true;
+        rb.AddForce(shootForce * shootDirection, ForceMode.Impulse);
+        isHeld = false;
+        //col.enabled = true;
+        //mr.enabled = true;
     }
 
 }
