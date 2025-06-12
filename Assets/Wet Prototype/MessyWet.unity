@@ -948,10 +948,10 @@ MonoBehaviour:
   sensitivityX: 1
   rotationMinY: -85
   rotationMaxY: 85
-  maxSpeed: 350
-  acceleration: 75
-  deceleration: 100
-  drag: 80
+  maxSpeed: 500
+  acceleration: 300
+  deceleration: 400
+  drag: 350
   anim: {fileID: 1580964705}
 --- !u!1 &960069066
 GameObject:
@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0, y: 0, z: 12}
+  Damping: {x: 0, y: 0, z: 3}
   ShoulderOffset: {x: 0, y: 1.1, z: 0}
   VerticalArmLength: 0
   CameraSide: 1
@@ -1194,8 +1194,8 @@ MonoBehaviour:
     m_Bits: 64
   IgnoreTag: 
   CameraRadius: 0.2
-  DampingIntoCollision: 1
-  DampingFromCollision: 2
+  DampingIntoCollision: 0
+  DampingFromCollision: 0
 --- !u!114 &1417710951
 MonoBehaviour:
   m_ObjectHideFlags: 3
