@@ -9,6 +9,25 @@ public class MouseLook : MonoBehaviour
     [SerializeField] Transform playerMain;
     float xRotation = 0f;
 
+    public ControlsInput getInputs;
+
+    #region Input Data
+    private void Awake()
+    {
+        getInputs = new ControlsInput();
+        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+    }
+    private void OnEnable()
+    {
+        getInputs.Enable();
+    }
+    private void OnDisable()
+    {
+        getInputs.Disable();
+    }
+    #endregion
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,8 +37,8 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = getInputs.Player.Look.ReadValue<Vector2>().x * mouseSensitivity * Time.deltaTime;
+        float mouseY = getInputs.Player.Look.ReadValue<Vector2>().y * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, minXRotation, maxXRotation);
