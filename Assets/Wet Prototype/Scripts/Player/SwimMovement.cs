@@ -3,7 +3,11 @@ using UnityEngine;
 public class SwimMovement : MonoBehaviour
 {
 
+    [SerializeField] Transform cameraRoot;
+    [SerializeField] Transform playerGraphics;
+
     Transform playerTransform; //it will cache faster if we reference the transform
+    Transform directionTransform;
 
     [Header("Player Rotation")]
     [SerializeField] float sensitivityY = 1f;
@@ -50,6 +54,12 @@ public class SwimMovement : MonoBehaviour
         if (moveY > 0)
         {
             speed += acceleration * Time.deltaTime;
+
+            if (playerGraphics.transform.rotation != cameraRoot.transform.rotation)
+            {
+                playerGraphics.transform.rotation = Quaternion.Lerp(playerGraphics.transform.rotation, cameraRoot.transform.rotation, Time.deltaTime * 5);
+            }
+            
         }
         else if (moveY < 0)
         {
@@ -64,7 +74,7 @@ public class SwimMovement : MonoBehaviour
         speed = Mathf.Clamp(speed, 0, maxSpeed);
         //strafeSpeed = Mathf.Clamp(strafeSpeed, -maxStrafeSpeed, maxStrafeSpeed);
 
-        rigidBody.AddForce(playerTransform.forward * speed);
+        rigidBody.AddForce(cameraRoot.transform.forward * speed);
         //rigidBody.AddForce(playerTransform.right * strafeSpeed);
     }
 
@@ -79,6 +89,6 @@ public class SwimMovement : MonoBehaviour
         //clamp on z rotation
 
         //set rotation of player; 
-        playerTransform.localRotation = Quaternion.Euler(-rotationY, rotationX, 0f);
+        //playerTransform.localRotation = Quaternion.Euler(-rotationY, rotationX, 0f);
     }
 }

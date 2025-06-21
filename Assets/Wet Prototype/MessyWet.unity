@@ -803,6 +803,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1580964704}
+  - {fileID: 1846889661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &922501654
@@ -896,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swimMovement: {fileID: 922501666}
+  cameraRoot: {fileID: 1846889662}
   oxygenControl: {fileID: 922501665}
 --- !u!114 &922501664
 MonoBehaviour:
@@ -944,8 +946,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14642a7b32eb33645b1e08013d5161a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityY: 0.15
-  sensitivityX: 0.2
+  cameraRoot: {fileID: 1846889661}
+  playerGraphics: {fileID: 1580964704}
+  sensitivityY: 0.5
+  sensitivityX: 1
   rotationMinY: -85
   rotationMaxY: 85
   maxSpeed: 500
@@ -1185,13 +1189,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 2
-  m_FollowOffset: {x: 0, y: 2.71, z: -5}
+  m_FollowOffset: {x: 0, y: 1.83, z: -5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
   m_AngularDampingMode: 0
-  m_PitchDamping: 4
-  m_YawDamping: 4
+  m_PitchDamping: 0
+  m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &1417710953
@@ -1207,7 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0.93, z: 0}
-  m_LookaheadTime: 0.3
+  m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 2
@@ -1216,8 +1220,8 @@ MonoBehaviour:
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.28
-  m_SoftZoneHeight: 0.24
+  m_SoftZoneWidth: 0
+  m_SoftZoneHeight: 0
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -1689,8 +1693,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842933280}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17017275, y: -0.000000039175315, z: 0.000000008941414, w: 0.98541427}
-  m_LocalPosition: {x: 0, y: 3.96, z: -5}
+  m_LocalRotation: {x: 0.088928804, y: 0, z: 0, w: 0.996038}
+  m_LocalPosition: {x: 0, y: 3.08, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1715,8 +1719,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 922501653}
-  m_Follow: {fileID: 922501653}
+  m_LookAt: {fileID: 1846889661}
+  m_Follow: {fileID: 1846889661}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -1797,6 +1801,54 @@ MonoBehaviour:
   m_Damping: 1
   m_DampingWhenOccluded: 1
   m_OptimalTargetDistance: 0
+--- !u!1 &1846889660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1846889661}
+  - component: {fileID: 1846889662}
+  m_Layer: 0
+  m_Name: CameraRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1846889661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846889660}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 922501653}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1846889662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846889660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba82b6fd1ce36740a0f5270ac8e384b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivityY: 0.5
+  sensitivityX: 0.5
+  rotationMinY: -85
+  rotationMaxY: 85
 --- !u!1 &1888167564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,8 +5938,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944336656863366122}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17017278, y: -0.000000038787967, z: 0.000000006698355, w: 0.98541427}
-  m_LocalPosition: {x: 0, y: 3.96, z: -5}
+  m_LocalRotation: {x: 0.088928826, y: 0, z: 0, w: 0.996038}
+  m_LocalPosition: {x: 0, y: 3.08, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

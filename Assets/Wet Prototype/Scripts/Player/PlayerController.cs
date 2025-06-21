@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Movement")]
     public SwimMovement swimMovement;
+    public CameraRoot cameraRoot;
     Vector2 lookRotation;
     Vector2 moveAxis;
 
@@ -41,7 +42,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         InputAssignment(); 
-        swimMovement.LookControl(lookRotation);
+        //swimMovement.LookControl(lookRotation);
+        cameraRoot.LookControl(lookRotation);
         oxygenControl.PlayerBreathe(takeBreath);
 
 
