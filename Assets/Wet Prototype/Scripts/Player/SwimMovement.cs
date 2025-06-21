@@ -3,15 +3,16 @@ using UnityEngine;
 public class SwimMovement : MonoBehaviour
 {
 
+    [Header("Player Parts")]
     [SerializeField] Transform cameraRoot;
     [SerializeField] Transform playerGraphics;
 
     Transform playerTransform; //it will cache faster if we reference the transform
-    Transform directionTransform;
 
     [Header("Player Rotation")]
     [SerializeField] float sensitivityY = 1f;
     [SerializeField] float sensitivityX = 1f;
+    [SerializeField] float turnTime = 5; //how long it takes for the player to snap to the direction
 
     [Header("Clamp on Y Rotation")]
     [SerializeField] float rotationMinY = -85;
