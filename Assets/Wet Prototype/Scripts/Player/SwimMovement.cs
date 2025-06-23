@@ -10,13 +10,13 @@ public class SwimMovement : MonoBehaviour
     Transform playerTransform; //it will cache faster if we reference the transform
 
     [Header("Player Rotation")]
-    [SerializeField] float sensitivityY = 1f;
-    [SerializeField] float sensitivityX = 1f;
-    [SerializeField] float turnTime = 5; //how long it takes for the player to snap to the direction
+    float sensitivityY = 1f;
+    float sensitivityX = 1f;
+    float turnTime = 5; //how long it takes for the player to snap to the direction
 
     [Header("Clamp on Y Rotation")]
-    [SerializeField] float rotationMinY = -85;
-    [SerializeField] float rotationMaxY = 85;
+    float rotationMinY = -85;
+    float rotationMaxY = 85;
 
     //Look input variables; 
     float rotationX;
