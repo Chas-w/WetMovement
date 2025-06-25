@@ -507,6 +507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Body
       objectReference: {fileID: 0}
+    - target: {fileID: 2861352924866663051, guid: b8b4f9e9a5866864fb6897103bd6834d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6423021666068658854, guid: b8b4f9e9a5866864fb6897103bd6834d, type: 3}
       propertyPath: cam
       value: 
@@ -905,6 +909,10 @@ PrefabInstance:
     - target: {fileID: 2861352924866663051, guid: b8b4f9e9a5866864fb6897103bd6834d, type: 3}
       propertyPath: m_Name
       value: Body (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861352924866663051, guid: b8b4f9e9a5866864fb6897103bd6834d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8256472636130342275, guid: b8b4f9e9a5866864fb6897103bd6834d, type: 3}
       propertyPath: m_LocalPosition.x

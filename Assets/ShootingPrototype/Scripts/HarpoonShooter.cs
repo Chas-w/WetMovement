@@ -100,6 +100,16 @@ public class HarpoonShooter : MonoBehaviour
             targetPoint = ray.GetPoint(75);
         }
 
+        //shooting limbs
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.GetComponent<Limb>())
+            {
+                Limb limb = hit.transform.GetComponent<Limb>();
+                limb.GetHit(); 
+            }
+        }
+
         Vector3 shootDirection = targetPoint - attackPoint.position;
         
         GameObject currentHarpoon = Instantiate(harpoonPrefab, attackPoint.position, Quaternion.identity);
