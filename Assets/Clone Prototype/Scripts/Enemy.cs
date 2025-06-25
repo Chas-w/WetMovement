@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void ActivateRagdoll()
+    public void ActivateRagdoll()
     {
         animator.enabled = false;
         for (int i = 0; i < ragdollRigids.Count; i++)
@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void DeActivateRagdoll()
+    public void DeActivateRagdoll()
     {
         animator.enabled = true;
         for (int i = 0; i < ragdollRigids.Count; i++)

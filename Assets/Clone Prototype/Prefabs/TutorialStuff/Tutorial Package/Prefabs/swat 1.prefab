@@ -436,6 +436,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs: []
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &1709582311945585401
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +661,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8216240436664781521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2830856137061363009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5774548615761207034}
+  m_Layer: 0
+  m_Name: CloneParent
+  m_TagString: CloneParent
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5774548615761207034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830856137061363009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4040752917770490654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2926149557121390534
 GameObject:
@@ -1439,6 +1472,8 @@ MonoBehaviour:
   childLimbs:
   - {fileID: 4823518672178047199}
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &4733567973514692337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs: []
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &6066102291265705862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2370,8 @@ MonoBehaviour:
   childLimbs:
   - {fileID: 8825209817146440095}
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &6496871460436962683
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs: []
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &6768720891466428591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,6 +3028,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs: []
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &7846498845988248929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3134,6 +3177,8 @@ MonoBehaviour:
   childLimbs:
   - {fileID: 9066502752850369189}
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &7886171184213643545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,9 +3286,10 @@ GameObject:
   - component: {fileID: 4040752917770490654}
   - component: {fileID: 2158790538476289031}
   - component: {fileID: 3708209349557079058}
+  - component: {fileID: 5681714579963077784}
   m_Layer: 0
   m_Name: swat 1
-  m_TagString: Untagged
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3263,6 +3309,7 @@ Transform:
   m_Children:
   - {fileID: 6902982875221214446}
   - {fileID: 1128819006056674601}
+  - {fileID: 5774548615761207034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!95 &2158790538476289031
@@ -3299,6 +3346,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4057916ccd4c269498d1e40eaaae69f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5681714579963077784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343983540286467068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da47d2ab9bdc9ec4fb44fc53321384c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preservedLimb: 
+  justCloned: 0
+  enemyManager: {fileID: 0}
+  children:
+  - {fileID: 546369490714644737}
+  - {fileID: 3514751194098201359}
+  - {fileID: 6890888101558956208}
+  - {fileID: 1257521379532806750}
+  - {fileID: 2421763096643591603}
+  - {fileID: 7314164945228983782}
 --- !u!1 &8561731840213109984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3508,6 +3577,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs: []
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &8908012747926979430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3689,6 +3760,8 @@ MonoBehaviour:
   childLimbs:
   - {fileID: 311095396099629999}
   clone: {fileID: 8343983540286467068}
+  cloneParent: {fileID: 2830856137061363009}
+  growSpeed: 0.1
 --- !u!1 &9160927983355553414
 GameObject:
   m_ObjectHideFlags: 0
