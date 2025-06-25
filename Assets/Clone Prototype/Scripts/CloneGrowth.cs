@@ -41,13 +41,16 @@ public class CloneGrowth : MonoBehaviour
     {
         if (newClone && !oneVisable) 
         {
-            //Transform[] children = GetComponentsInChildren<Transform>(true).Where(child => child != transform).ToArray();
 
             for (int i = 0; i < children.Length; i++)
             {
                 if (children[i].name != preservedLimb)
                 {
                     children[i].localScale = Vector3.zero;
+                } else
+                {
+                    children[i].parent = null;
+                    children[i].localScale = baseSize; 
                 }
             }
 
@@ -60,6 +63,7 @@ public class CloneGrowth : MonoBehaviour
     {
         if (readyToGrow)
         {
+
             for (int i = 0; i < children.Length; i++)
             {
                 Vector3 currentSize = children[i].localScale;
