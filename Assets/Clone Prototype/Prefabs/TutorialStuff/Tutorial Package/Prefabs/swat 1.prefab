@@ -3358,7 +3358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da47d2ab9bdc9ec4fb44fc53321384c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preservedLimb: 
+  preservedLimbName: 
   justCloned: 0
   enemyManager: {fileID: 0}
   limbs:

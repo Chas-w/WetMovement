@@ -26,6 +26,8 @@ public class CloneGrowth : MonoBehaviour
 
     private void Awake()
     {
+        baseSize = hips.transform.localScale;
+
     }
     void Start()
     {
@@ -41,7 +43,7 @@ public class CloneGrowth : MonoBehaviour
 
         if (justCloned)
         {
-            hips.transform.localScale = new Vector3(.01f, .01f, .01f);
+            hips.transform.localScale = new Vector3(hips.transform.localScale.x * .01f, hips.transform.localScale.x * .01f, hips.transform.localScale.x * .01f);
             enemyManager.ActivateRagdoll();
             justCloned = false;
         }

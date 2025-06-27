@@ -305,9 +305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525c50804c9f2ba49868fd304a284192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  childLimbs:
+  - {fileID: 7551824781550394098}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &508448021663177295
 GameObject:
@@ -641,8 +642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &1533086380222834396
 GameObject:
@@ -1011,9 +1012,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525c50804c9f2ba49868fd304a284192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  childLimbs:
+  - {fileID: 6214229962335139369}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &2441172989459574170
 GameObject:
@@ -1190,9 +1192,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525c50804c9f2ba49868fd304a284192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  childLimbs:
+  - {fileID: 5335590761221340260}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &2498234103570037557
 GameObject:
@@ -1590,8 +1593,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &4290496727430741074
 GameObject:
@@ -2211,8 +2214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &5229295978754044752
 GameObject:
@@ -2332,7 +2335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398174545000572490}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029653306}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.011956263, y: 0, z: 5.8253036}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 1
@@ -2351,7 +2354,7 @@ Transform:
   - {fileID: 8250567632385027232}
   - {fileID: 2377324304462110427}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &6791944849717742255
 Animator:
   serializedVersion: 7
@@ -2398,19 +2401,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da47d2ab9bdc9ec4fb44fc53321384c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preservedLimb: 
+  preservedLimbName: 
   justCloned: 0
   enemyManager: {fileID: 0}
-  children:
+  limbs:
+  - {fileID: 1078553426751697439}
+  - {fileID: 2526579143802447977}
+  - {fileID: 1726802290920958355}
+  - {fileID: 5380652904452253373}
+  - {fileID: 3329745152161254877}
+  - {fileID: 3243807026581531735}
+  - {fileID: 1540067467600242192}
   - {fileID: 6473315870691173586}
   - {fileID: 7401586268820727513}
-  - {fileID: 1078553426751697439}
-  - {fileID: 1726802290920958355}
-  - {fileID: 2526579143802447977}
-  - {fileID: 3329745152161254877}
-  - {fileID: 5380652904452253373}
-  - {fileID: 1540067467600242192}
-  - {fileID: 3243807026581531735}
+  hips: {fileID: 5398174545000572490}
 --- !u!1 &5569067564195923918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,9 +3097,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 525c50804c9f2ba49868fd304a284192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  childLimbs:
+  - {fileID: 3060303097083909421}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &5880130003020824248
 GameObject:
@@ -3650,8 +3655,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &7820439264791835512
 GameObject:
@@ -4146,8 +4151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 0}
-  cloneParent: {fileID: 0}
+  clone: {fileID: 5398174545000572490}
+  cloneParent: {fileID: 4980833584865315960}
   growSpeed: 0.1
 --- !u!1 &8901548419242646308
 GameObject:
