@@ -2,87 +2,106 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CloneGrowth : MonoBehaviour
 {
-    public string preservedLimb;
+    public string preservedLimbName;
     public bool justCloned; 
     public Enemy enemyManager;
 
-    public Transform[] children; 
+    [SerializeField] Transform[] limbs;
+    [SerializeField] GameObject hips;
+    Transform preservedLimbTransform; 
+
 
     Vector3 baseSize = Vector3.one;
+    Vector3 preservedSize = new Vector3(100,100, 100);
     bool oneVisable; 
-    float growSpeed = 1f;
+    float growSpeed = .5f;
+    float fixScale = 1; 
 
-    int finishedGrowingCount = 0; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+    }
     void Start()
     {
         enemyManager = GetComponent<Enemy>();
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        MakeOneLimbVisable(justCloned);
-        GrowEverythingElse(oneVisable);
+
+        MakeOneLimbVisable();
 
         if (justCloned)
         {
+            hips.transform.localScale = new Vector3(.01f, .01f, .01f);
             enemyManager.ActivateRagdoll();
             justCloned = false;
         }
     }
-
-    void MakeOneLimbVisable(bool newClone)
+    private void FixedUpdate()
     {
-        if (newClone && !oneVisable) 
+        GrowEverythingElse();
+
+    }
+
+    void MakeOneLimbVisable()
+    {
+        if (justCloned && !oneVisable) 
         {
 
-            for (int i = 0; i < children.Length; i++)
+            Debug.Log(limbs.Length);
+            for (int i = 0; i < limbs.Length; i++)
             {
-                if (children[i].name != preservedLimb)
+                if (limbs[i].name == preservedLimbName)
                 {
-                    children[i].localScale = Vector3.zero;
-                } else
-                {
-                    children[i].parent = null;
-                    children[i].localScale = baseSize; 
+                    limbs[i].localScale = preservedSize;
+                    preservedLimbTransform = limbs[i];
+                    Debug.Log(preservedLimbTransform.name);
+                    oneVisable = true;
+
                 }
+
             }
 
-            oneVisable = true;
+            
+
         }
 
     }
 
-    void GrowEverythingElse(bool readyToGrow)
+    void GrowEverythingElse()
     {
-        if (readyToGrow)
+        if (oneVisable)
         {
 
-            for (int i = 0; i < children.Length; i++)
+            Vector3 currentSize = hips.transform.localScale;
+            Vector3 preservedLimbSize = preservedLimbTransform.localScale;
+
+            if (hips.transform.localScale.x <= baseSize.x)
             {
-                Vector3 currentSize = children[i].localScale;
+                currentSize.x += growSpeed * Time.deltaTime;
+                currentSize.y += growSpeed * Time.deltaTime;
+                currentSize.z += growSpeed * Time.deltaTime;
 
-                if (children[i].localScale.x <= baseSize.x)
-                {
-                    currentSize.x += growSpeed * Time.deltaTime;
-                    currentSize.y += growSpeed * Time.deltaTime;
-                    currentSize.z += growSpeed * Time.deltaTime;
+                
+                hips.transform.localScale = currentSize;
+            } else { hips.transform.localScale = baseSize; }
 
-                    children[i].localScale = currentSize;
-                }
-                else
-                {
-                    children[i].localScale = baseSize;
-                    Debug.Log(finishedGrowingCount);
-                }
+            preservedLimbTransform.localScale = new Vector3(fixScale / hips.transform.localScale.x, fixScale / hips.transform.localScale.y, fixScale / hips.transform.localScale.z); ;
+
+            if (hips.transform.localScale == baseSize)
+            {
+                preservedLimbTransform.localScale = baseSize; 
+                oneVisable = false; 
             }
-
         }
 
 

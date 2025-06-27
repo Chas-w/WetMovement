@@ -23,7 +23,7 @@ public class Limb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RegrowThisLimb(severed);
+        RegrowThisLimb();
     }
 
     public void GetHit()
@@ -47,13 +47,12 @@ public class Limb : MonoBehaviour
         }
 
         CloneSetUp();
-       // Destroy(this); //instead of destroying this, we should exit this method and call a method to start growing the limb back
     }
 
-    public void RegrowThisLimb(bool isSevered)
+    public void RegrowThisLimb()
     {
 
-        if (isSevered)
+        if (severed)
         {
             Vector3 currentSize = transform.localScale;
 
@@ -85,8 +84,7 @@ public class Limb : MonoBehaviour
             CloneGrowth newCloneBehavior = freshClone.GetComponent<CloneGrowth>();
 
             newCloneBehavior.justCloned = true;
-            newCloneBehavior.preservedLimb = gameObject.name;
-            Debug.Log(newCloneBehavior.preservedLimb);
+            newCloneBehavior.preservedLimbName = gameObject.name;
 
             freshClone.transform.parent = null; 
         }

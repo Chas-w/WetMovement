@@ -1812,7 +1812,7 @@ GameObject:
   - component: {fileID: 1664344759352951178}
   m_Layer: 0
   m_Name: swat:Hips
-  m_TagString: Untagged
+  m_TagString: Hips
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1828,7 +1828,7 @@ Transform:
   m_LocalRotation: {x: 1.0234468e-15, y: -0.0000000125804505, z: 0.00000039506045, w: 1}
   m_LocalPosition: {x: -0.000000034922945, y: 0.9636865, z: -0.00035689375}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 546369490714644737}
   - {fileID: 3514751194098201359}
@@ -2041,7 +2041,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 2.7084222e-35, w: 1}
   m_LocalPosition: {x: -3.7810492e-16, y: 0.040266, z: 0.0085849995}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3453315876593322327}
   - {fileID: 2837978479529572014}
@@ -3305,7 +3305,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0.193, y: 0.29400003, z: 6.563353}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6902982875221214446}
   - {fileID: 1128819006056674601}
@@ -3361,13 +3361,17 @@ MonoBehaviour:
   preservedLimb: 
   justCloned: 0
   enemyManager: {fileID: 0}
-  children:
+  limbs:
   - {fileID: 546369490714644737}
+  - {fileID: 6794964803634541795}
   - {fileID: 3514751194098201359}
+  - {fileID: 4406245167954920832}
   - {fileID: 6890888101558956208}
-  - {fileID: 1257521379532806750}
   - {fileID: 2421763096643591603}
-  - {fileID: 7314164945228983782}
+  - {fileID: 5257050057910904147}
+  - {fileID: 1257521379532806750}
+  - {fileID: 8707757261106689284}
+  hips: {fileID: 8343983540286467068}
 --- !u!1 &8561731840213109984
 GameObject:
   m_ObjectHideFlags: 0
