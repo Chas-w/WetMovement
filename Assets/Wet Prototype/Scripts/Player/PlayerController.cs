@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour
         //swimMovement.LookControl(lookRotation);
         cameraRoot.LookControl(lookRotation);
         oxygenControl.PlayerBreathe(takeBreath);
-
+        
+        cameraRoot.gameObject.transform.position = swimMovement.gameObject.transform.position;
     }
 
     private void FixedUpdate()
