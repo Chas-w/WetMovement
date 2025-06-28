@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
         cameraRoot.LookControl(lookRotation);
         oxygenControl.PlayerBreathe(takeBreath);
 
-
     }
 
     private void FixedUpdate()

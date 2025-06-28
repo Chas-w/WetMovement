@@ -30,11 +30,11 @@ public class CameraRoot : MonoBehaviour
     public void LookControl(Vector2 lookRotationVector)
     {
         //apply sensitivity and store input data
-        rotationX += lookRotationVector.x * sensitivityX; //right stick
-        rotationY += lookRotationVector.y * sensitivityY; //right stick
+        rotationX += lookRotationVector.x * sensitivityX * Time.deltaTime; //right stick
+        rotationY += lookRotationVector.y * sensitivityY * Time.deltaTime; //right stick
 
         //clamp y rotation
-        rotationY = Mathf.Clamp(rotationY, rotationMinY, rotationMaxY);
+        //rotationY = Mathf.Clamp(rotationY, rotationMinY, rotationMaxY);
         //clamp on z rotation
 
         //set rotation of player; 
