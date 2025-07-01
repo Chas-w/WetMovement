@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &1709582311945585401
@@ -1471,7 +1471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs:
   - {fileID: 4823518672178047199}
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &4733567973514692337
@@ -2156,7 +2156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &6066102291265705862
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs:
   - {fileID: 8825209817146440095}
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &6496871460436962683
@@ -2579,7 +2579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &6768720891466428591
@@ -3027,7 +3027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &7846498845988248929
@@ -3176,7 +3176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs:
   - {fileID: 9066502752850369189}
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &7886171184213643545
@@ -3371,7 +3371,8 @@ MonoBehaviour:
   - {fileID: 5257050057910904147}
   - {fileID: 1257521379532806750}
   - {fileID: 8707757261106689284}
-  hips: {fileID: 8343983540286467068}
+  baseBody: {fileID: 8343983540286467068}
+  ragdollTimer: 4
 --- !u!1 &8561731840213109984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,7 +3581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childLimbs: []
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &8908012747926979430
@@ -3763,7 +3764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   childLimbs:
   - {fileID: 311095396099629999}
-  clone: {fileID: 8343983540286467068}
+  clone: {fileID: 0}
   cloneParent: {fileID: 2830856137061363009}
   growSpeed: 0.1
 --- !u!1 &9160927983355553414

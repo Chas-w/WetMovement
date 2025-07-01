@@ -8,25 +8,28 @@ using UnityEngine;
 public class CloneGrowth : MonoBehaviour
 {
     public string preservedLimbName;
-    public bool justCloned; 
+    public bool justCloned;
     public Enemy enemyManager;
 
     [SerializeField] Transform[] limbs;
-    [SerializeField] GameObject hips;
+    [SerializeField] GameObject baseBody;
     Transform preservedLimbTransform; 
+
+
 
 
     Vector3 baseSize = Vector3.one;
     Vector3 preservedSize = new Vector3(100,100, 100);
     bool oneVisable; 
     float growSpeed = .5f;
-    float fixScale = 1; 
+    float fixScale = 1;
+    float ragdollTimer = 1f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
     {
-        baseSize = hips.transform.localScale;
 
     }
     void Start()
@@ -38,43 +41,37 @@ public class CloneGrowth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        MakeOneLimbVisable();
-
         if (justCloned)
         {
-            hips.transform.localScale = new Vector3(hips.transform.localScale.x * .01f, hips.transform.localScale.x * .01f, hips.transform.localScale.x * .01f);
-            enemyManager.ActivateRagdoll();
-            justCloned = false;
+            enemyManager.ActivateRagdoll(); //turn on ragdoll so that the limb will fall
+            MakeOneLimbVisable(); //only enlarge the limb that was severed to make it look like 1 limb fell off
+            justCloned = false; //exit this loop
         }
+       
+
+
     }
     private void FixedUpdate()
     {
-        GrowEverythingElse();
+       GrowEverythingElse();
 
     }
 
     void MakeOneLimbVisable()
     {
-        if (justCloned && !oneVisable) 
+        if (!oneVisable) 
         {
 
             Debug.Log(limbs.Length);
-            for (int i = 0; i < limbs.Length; i++)
+            for (int i = 0; i < limbs.Length; i++) //cycle through limbs
             {
-                if (limbs[i].name == preservedLimbName)
+                if (limbs[i].name == preservedLimbName) //with the matching limb
                 {
-                    limbs[i].localScale = preservedSize;
+                    limbs[i].localScale = preservedSize; //enlargen it
                     preservedLimbTransform = limbs[i];
-                    Debug.Log(preservedLimbTransform.name);
                     oneVisable = true;
-
                 }
-
             }
-
-            
-
         }
 
     }
@@ -83,23 +80,23 @@ public class CloneGrowth : MonoBehaviour
     {
         if (oneVisable)
         {
-
-            Vector3 currentSize = hips.transform.localScale;
+     
+            Vector3 currentSize = baseBody.transform.localScale; //set sizes
             Vector3 preservedLimbSize = preservedLimbTransform.localScale;
 
-            if (hips.transform.localScale.x <= baseSize.x)
+            if (baseBody.transform.localScale.x <= baseSize.x) //if the rest of the body is still shrunk grow it
             {
                 currentSize.x += growSpeed * Time.deltaTime;
                 currentSize.y += growSpeed * Time.deltaTime;
                 currentSize.z += growSpeed * Time.deltaTime;
 
                 
-                hips.transform.localScale = currentSize;
-            } else { hips.transform.localScale = baseSize; }
+                baseBody.transform.localScale = currentSize;
+            } else { baseBody.transform.localScale = baseSize; }
 
-            preservedLimbTransform.localScale = new Vector3(fixScale / hips.transform.localScale.x, fixScale / hips.transform.localScale.y, fixScale / hips.transform.localScale.z); ;
+            preservedLimbTransform.localScale = new Vector3(fixScale / baseBody.transform.localScale.x, fixScale / baseBody.transform.localScale.y, fixScale / baseBody.transform.localScale.z); //keep the scale of the preserved limb fixed
 
-            if (hips.transform.localScale == baseSize)
+            if (baseBody.transform.localScale == baseSize) //exit the loop
             {
                 preservedLimbTransform.localScale = baseSize; 
                 oneVisable = false; 
