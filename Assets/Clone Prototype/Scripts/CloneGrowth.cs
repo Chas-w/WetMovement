@@ -15,15 +15,16 @@ public class CloneGrowth : MonoBehaviour
     [SerializeField] GameObject baseBody;
     Transform preservedLimbTransform; 
 
-
-
-
     Vector3 baseSize = Vector3.one;
     Vector3 preservedSize = new Vector3(100,100, 100);
     bool oneVisable; 
     float growSpeed = .5f;
     float fixScale = 1;
-    float ragdollTimer = 1f;
+
+    Rigidbody parentRigidbody;
+
+    [Header("Attributes")]
+    [SerializeField] float ragdollTimer = 5f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +36,7 @@ public class CloneGrowth : MonoBehaviour
     void Start()
     {
         enemyManager = GetComponent<Enemy>();
-
+        parentRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -44,10 +45,21 @@ public class CloneGrowth : MonoBehaviour
         if (justCloned)
         {
             enemyManager.ActivateRagdoll(); //turn on ragdoll so that the limb will fall
+
+            //ENABLE PARENT RIGIDBODY
+            parentRigidbody.isKinematic = false;
+            parentRigidbody.useGravity = true;
+
+            parentRigidbody.AddForce(new Vector3(0, 0, 1) * 5, ForceMode.Impulse);
+
             MakeOneLimbVisable(); //only enlarge the limb that was severed to make it look like 1 limb fell off
             justCloned = false; //exit this loop
         }
-       
+
+        if(oneVisable) //Time spent being JUST a limb
+        {
+            ragdollTimer -= Time.deltaTime;
+        }
 
 
     }
@@ -78,7 +90,7 @@ public class CloneGrowth : MonoBehaviour
 
     void GrowEverythingElse()
     {
-        if (oneVisable)
+        if (oneVisable && ragdollTimer < 0)
         {
      
             Vector3 currentSize = baseBody.transform.localScale; //set sizes
@@ -99,7 +111,17 @@ public class CloneGrowth : MonoBehaviour
             if (baseBody.transform.localScale == baseSize) //exit the loop
             {
                 preservedLimbTransform.localScale = baseSize; 
-                oneVisable = false; 
+                oneVisable = false;
+
+                //RESET PARENT TO BE UPRIGHT AND NORMAL
+                this.GetComponent<CapsuleCollider>().enabled = false;
+                parentRigidbody.useGravity = false;
+                parentRigidbody.isKinematic = true;
+                enemyManager.DeActivateRagdoll();
+                
+                this.transform.up = Vector3.up;
+
+                //enemyManager.DeActivateRagdoll();
             }
         }
 

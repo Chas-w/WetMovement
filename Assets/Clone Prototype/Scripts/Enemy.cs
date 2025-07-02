@@ -29,11 +29,14 @@ public class Enemy : MonoBehaviour
     public void ActivateRagdoll()
     {
         animator.enabled = false;
+        
+        /*
         for (int i = 0; i < ragdollRigids.Count; i++)
         {
             ragdollRigids[i].useGravity = true; 
             ragdollRigids [i].isKinematic = false;
-        }
+        }*/
+        
     }
 
     public void DeActivateRagdoll()
