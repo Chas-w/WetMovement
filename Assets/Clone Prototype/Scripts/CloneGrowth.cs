@@ -50,6 +50,7 @@ public class CloneGrowth : MonoBehaviour
             parentRigidbody.isKinematic = false;
             parentRigidbody.useGravity = true;
 
+            //New Vector needs to be replaced with the direction opposing that which the player shot, a force needs to be applied to mimic
             parentRigidbody.AddForce(new Vector3(0, 0, 1) * 5, ForceMode.Impulse);
 
             MakeOneLimbVisable(); //only enlarge the limb that was severed to make it look like 1 limb fell off
