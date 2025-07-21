@@ -43,8 +43,10 @@ public class CloneGrowth : MonoBehaviour
     {
         if (justCloned)
         {
-            enemyManager.ActivateRagdoll(); //turn on ragdoll so that the limb will fall
+            //enemyManager.ActivateRagdoll(); //turn on ragdoll so that the limb will fall
             MakeOneLimbVisable(); //only enlarge the limb that was severed to make it look like 1 limb fell off
+            Debug.Log("justcloned");
+
             justCloned = false; //exit this loop
         }
        
@@ -62,7 +64,6 @@ public class CloneGrowth : MonoBehaviour
         if (!oneVisable) 
         {
 
-            Debug.Log(limbs.Length);
             for (int i = 0; i < limbs.Length; i++) //cycle through limbs
             {
                 if (limbs[i].name == preservedLimbName) //with the matching limb
