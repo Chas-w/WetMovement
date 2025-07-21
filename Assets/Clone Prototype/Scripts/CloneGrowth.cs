@@ -46,7 +46,7 @@ public class CloneGrowth : MonoBehaviour
             //enemyManager.ActivateRagdoll(); //turn on ragdoll so that the limb will fall
             MakeOneLimbVisable(); //only enlarge the limb that was severed to make it look like 1 limb fell off
             Debug.Log("justcloned");
-
+            transform.localScale = new Vector3(.01f, .01f, .01f);
             justCloned = false; //exit this loop
         }
        
@@ -71,7 +71,7 @@ public class CloneGrowth : MonoBehaviour
                     limbs[i].localScale = preservedSize; //enlargen it
                     preservedLimbTransform = limbs[i];
                     oneVisable = true;
-                }
+                } 
             }
         }
 
@@ -82,22 +82,22 @@ public class CloneGrowth : MonoBehaviour
         if (oneVisable)
         {
      
-            Vector3 currentSize = baseBody.transform.localScale; //set sizes
+            Vector3 currentSize = transform.localScale; //set sizes
             Vector3 preservedLimbSize = preservedLimbTransform.localScale;
 
-            if (baseBody.transform.localScale.x <= baseSize.x) //if the rest of the body is still shrunk grow it
+            if (transform.localScale.x <= baseSize.x) //if the rest of the body is still shrunk grow it
             {
                 currentSize.x += growSpeed * Time.deltaTime;
                 currentSize.y += growSpeed * Time.deltaTime;
                 currentSize.z += growSpeed * Time.deltaTime;
 
                 
-                baseBody.transform.localScale = currentSize;
-            } else { baseBody.transform.localScale = baseSize; }
+                transform.localScale = currentSize;
+            } else { transform.localScale = baseSize; }
 
-            preservedLimbTransform.localScale = new Vector3(fixScale / baseBody.transform.localScale.x, fixScale / baseBody.transform.localScale.y, fixScale / baseBody.transform.localScale.z); //keep the scale of the preserved limb fixed
+            preservedLimbTransform.localScale = new Vector3(fixScale / transform.localScale.x, fixScale / transform.localScale.y, fixScale / transform.localScale.z); //keep the scale of the preserved limb fixed
 
-            if (baseBody.transform.localScale == baseSize) //exit the loop
+            if (transform.localScale == baseSize) //exit the loop
             {
                 preservedLimbTransform.localScale = baseSize; 
                 oneVisable = false; 
